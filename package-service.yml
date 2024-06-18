@@ -44,8 +44,8 @@ resilience4j:
   ratelimiter:
     instances:
       funkyBreaker:
-        timeout-duration: 0
-        limit-refresh-period: 4
+        timeout-duration: 5s 
+        limit-refresh-period: 4s
         limit-for-period: 2
   circuitbreaker:
     instances:
