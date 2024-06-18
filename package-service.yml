@@ -41,6 +41,12 @@ spring:
       ddl-auto: create-drop
  
 resilience4j:
+  ratelimiter:
+    instances:
+      funkyBreaker:
+        timeout-duration: 0
+        limit-refresh-period: 4
+        limit-for-period: 2
   circuitbreaker:
     instances:
       funkyBreaker:
