@@ -12,6 +12,9 @@ management:
   tracing:
     sampling:
       probability: 1.0
+  health:
+    circuitbreakers:
+      enabled: true
   endpoints:
     web:
       exposure:
@@ -37,7 +40,20 @@ spring:
     hibernate:
       ddl-auto: create-drop
  
-
+resilience4j:
+  circuitbreaker:
+    instances:
+      companyBreaker:
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        permittedNumberOfCallsInHalfOpenState: 3
+        waitDurationInOpenState: 10s
+        failureRateThreshold: 50
+        register-health-indicator: true
+        automatic-transition-from-open-to-half-open-enabled: true
+        sliding-window-type: count_based
+        
 #read form env variable
 qrcode:
   output:
