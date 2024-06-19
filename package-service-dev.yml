@@ -67,3 +67,6 @@ resilience4j:
 qrcode:
   output:
     directory: "/Users/javierbarbieri/developer/package-service"
+
+funky-service:
+  url: http://funky:8082
