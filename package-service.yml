@@ -1,5 +1,5 @@
 funky-service:
-  url: http://localhost:8082
+  url: ${FUNKY_SERVICE_URL}
 
 server:
   port: 8081
