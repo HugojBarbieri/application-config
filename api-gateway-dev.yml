@@ -9,6 +9,9 @@ eureka:
       defaultZone: http://service-registry:8761/eureka/
 
 management:
+  zipkin:
+    tracing:
+      endpoint: http://zipkin:9411/api/v2/spans
   tracing:
     sampling:
       probability: 1.0
@@ -18,11 +21,11 @@ spring:
     gateway:
       routes:
         - id: funky-service
-          uri: lb://FUNKY-SERVICE
+          uri: http://funky-service:8082
           predicates:
             - Path=/funky/**
         - id: package-service
-          uri: lb://PACKAGE-SERVICE
+          uri: http://package-service:8081
           predicates:
             - Path=/package/**
         - id: eureka-server
