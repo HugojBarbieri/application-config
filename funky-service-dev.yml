@@ -15,3 +15,8 @@ management:
   tracing:
     sampling:
       probability: 1.0
+
+configtn:
+  base-url: ${BASE_URL}
+  auth-token: ${AUTH_TOKEN}
+  user-agent: ${USER_AGENT}
