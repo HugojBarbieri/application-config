@@ -69,4 +69,4 @@ qrcode:
     directory: "/Users/javierbarbieri/developer/packageservice"
 
 funky-service:
-  url: http://funkyservice:8082
+  url: ${FUNKY_SERVICE_URL}
