@@ -6,7 +6,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     serviceUrl:
-      defaultZone: http://service-registry:8761/eureka/
+      defaultZone: http://serviceregistry:8761/eureka/
 
 management:
   zipkin:
@@ -21,21 +21,21 @@ spring:
     gateway:
       routes:
         - id: funky-service
-          uri: http://funky-service:8082
+          uri: http://funkyservice:8082
           predicates:
             - Path=/funky/**
         - id: package-service
-          uri: http://package-service:8081
+          uri: http://packageservice:8081
           predicates:
             - Path=/package/**
         - id: eureka-server
-          uri: http://service-registry:8761
+          uri: http://serviceregistry:8761
           predicates:
             - Path=/eureka/main
           filters:
             - SetPath=/
         - id: eureka-server-static
-          uri: http://service-registry:8761
+          uri: http://serviceregistry:8761
           predicates:
             - Path=/eureka/**
 
